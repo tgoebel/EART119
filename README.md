@@ -6,3 +6,9 @@ py scipts for EART119 - Intro to Scientific Computing
 This repository contains some simple python codes that were developed in class (Scientific Computing).
 Many examples are taken from:  HP Langtangen, (2014) A primer on scientific programming with python, 
 https://hplgit.github.io/primer.html/doc/pub/half/book.pdf, in addition to my own examples.
+
+additional resources to get started in python are:
+https://www.greenteapress.com/thinkpython/thinkpython.pdf
+
+and think stats (with python):
+http://www.greenteapress.com/thinkstats/
