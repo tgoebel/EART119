@@ -13,13 +13,13 @@ https://www.greenteapress.com/thinkpython/thinkpython.pdf
 and think stats (with python):
 http://www.greenteapress.com/thinkstats/
 
-Some comments on using python3.6 on a UCSC windows desktop:
-- you have access to the sam python installtion and modules everywhere on campus (including library computers)
+- Some comments on using python3.6 on a UCSC windows desktop:
+you have access to the same python installtion and modules everywhere on campus (including library computers)
 
-Here is where the interpreter lives under windows:
+- Here is where the interpreter lives under windows:
 C:\Programs\Python36>python.exe
 
-SETTING PYTHON INTERPRETER FOR PYCHARM:
+- SETTING PYTHON INTERPRETER FOR PYCHARM:
 The first time a user launches PyCharm they will need to configure it for a Python interpreter. Using Virtual Environments is the best way to do this and to deal with multiple Python versions. Steps to create a Python Virtual Environment are below. 
 
 1. Launch PyCharm
