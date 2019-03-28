@@ -8,9 +8,9 @@ Write a script that computes the annual rate of return and the absolute return o
 #                                params
 #===================================================================================
 
-iniInvest = input( 'specify amount of initial savings: ')
-interest  = input( 'What is the interest rate?: ')
-nYears    = input( 'How many years are you planning to invest: ')
+iniInvest = float( input( 'specify amount of initial savings: '))
+interest  = float( input( 'What is the interest rate?: '))
+nYears    = int( input( 'How many years are you planning to invest: '))
 
 
 #===================================================================================
