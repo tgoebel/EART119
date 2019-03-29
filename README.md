@@ -10,8 +10,13 @@ https://hplgit.github.io/primer.html/doc/pub/half/book.pdf, in addition to my ow
 additional resources to get started in python are:
 https://www.greenteapress.com/thinkpython/thinkpython.pdf
 
-and think stats (with python):
+think stats (with python):
 http://www.greenteapress.com/thinkstats/
+
+Python for Data Analysis, 2nd Edition
+Data Wrangling with Pandas, NumPy, and IPython
+By William McKinney
+http://shop.oreilly.com/product/0636920050896.do
 
 - Some comments on using python3.6 on a UCSC windows desktop:
 you have access to the same python installtion and modules everywhere on campus (including library computers)
