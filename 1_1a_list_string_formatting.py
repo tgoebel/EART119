@@ -2,7 +2,7 @@
 Created on Feb 23, 2017
 
 - split, strip strigns
-- modify lists in place or create new list using online for loops and if statement
+- modify lists in place or create new list using only for loops and if statement
 
 @author: tgoebel
 '''
