@@ -1,32 +1,40 @@
 #!python2.7
 """
-Write a script that computes the annual rate of return and the absolute return on an investment of $10,000 at 10% over 30 years
+Write a script that computes the annual rate of return and the absolute return on an investment of $1,000 at 10% over 30 years
  - lessons in compounding interest
 
 """
 #===================================================================================
 #                                params
 #===================================================================================
-iniInvest = 1e4
-interest  = .1
-nYears    = 30
+f_iniInvest = 1e4
+f_interest  = .1
+i_Years    = 30
 
 
 #===================================================================================
 #                                calculation
 #===================================================================================
 
-currInvest = iniInvest
-for i in range( nYears):
-    growth     = currInvest*.1
-    currInvest += growth
-    print( 'Year: %i, abs savings: %8.2f, rate of ini.: %4.3f'%( i+1, currInvest, (growth)/iniInvest))
-    #print( 'Year: {x:d}, abs savings: {y:8.2f}, rate of ini.: {z:4.3f}'.format(  x=i+1, y=currInvest, z=(growth)/iniInvest))
-    #print( 'Year: {0}, abs savings: {1}, rate of ini.: {2}'.format(  i+1, currInvest, (growth)/iniInvest))
+def annual_savings( f_money0, f_int, N, verbose = False):
+    """
+    - compute annual return on toal savings - f_money0
+    :input
+        f_money0  - total savings in year 0
+        f_int     - interest rate
+        N         - total years
+    :return float() - savings in year N
+    """
+    currSave = f_money0
+    for i in range( N):
+        growth    = currSave*.1
+        currSave += growth
+        if verbose == True:
+            print( 'Year: %i, abs savings: %8.2f, rate of ini.: %4.3f'%( i+1, currSave, (growth)/f_int))
+    return currSave
 
+totSav1 = annual_savings( f_iniInvest, f_interest, i_Years, verbose = True)
 
-
-
-# formula for total savings in year n
-totSavings = (1 + interest)**nYears*iniInvest
-print( 'total savings: {x:.2f}'.format( x=totSavings))
+# here is the easier formila to get total savings in year n
+totSav2 = (1 + f_interest)**i_Years*f_iniInvest
+print( 'total savings after {y:.0f} years: {x:.2f}'.format( x=totSav2, y=i_Years), round( totSav1, 2))
