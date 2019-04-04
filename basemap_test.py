@@ -6,28 +6,12 @@ use basemap to plot seismicity
 @author: tgoebel
 '''
 import matplotlib as mpl
-#mpl.use('Agg')
-import os, numpy, pylab
+import matplotlib.pyplot as plt
+import os
+import numpy as np
 
 from mpl_toolkits.basemap import Basemap
-#import matplotlib.pyplot as plt
-#import matplotlib as mpl
-#import numpy as np
-#from matplotlib import rc
-from basemapUtils import cal_Cities, simpleTopoMap,fancyTopoMap
-import basemapUtils as mapUtils
-#rc('text',usetex=True)
-#rc('text.latex', preamble='\usepackage{sfmath}')
-import indSeism_utils
-from SeisCatDic import *
-from InstantPlot import *
-from GloParInd import *
 
-import dictionaryIO as dicIO
-
-multiCatalog = MultiCatalog( type = 'GPS')
-instantPlot = InstantPlot()
-catalog = SeismicCatalog()
 #===============================================================================
 #                 parameters
 #===============================================================================
@@ -47,22 +31,13 @@ dPar   = {
            'dpi'                 : 150,
            }
 
-gloPar= GloParInd()
-
-plotFile = '1e_US_CA_OK.%s'%( dPar['plotFormat'])
-
-print gloPar.vRegion
-for tag in gloPar.vRegion:
-    gloPar = GloParInd( region = tag)
-    print tag, gloPar.color
-
 region1 = np.array( [ [ -121, -117, -117, -121, -121], [33.5, 33.5, 36.2, 36.2, 35.5]]) 
 region2 = np.array( [ [-103,  -94.2, -94.2, -103,-103], [33.7,33.7,37.05,37.05,33.7]])
 #===============================================================================
 #                    set up basic map
 #===============================================================================
-fig = plb.figure(1, figsize=(13.5, 9))
-ax  = plb.axes( [.01, .01, .975, .97])
+fig = plt.figure(1, figsize=(13.5, 9))
+ax  = plt.axes( [.01, .01, .975, .97])
 
 print 'hello'
 # setup Lambert Conformal basemap.
@@ -93,7 +68,7 @@ m.plot( vX,vY, 'r-', lw = 4)
 vX,vY  = m( region2[0], region2[1])
 m.plot( vX,vY, 'g-', lw = 4)
 
-plb.show()
+plt.show()
 #===============================================================================
 #                  save map
 #===============================================================================
