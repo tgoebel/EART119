@@ -1,6 +1,6 @@
 #!python2.7
 """
-Write a script that computes the annual rate of return and the absolute return on an investment of $10,000 at 10% over 30 years
+Write a script that computes the annual rate of return and the absolute return on an investment of $1,000 at 10% over 30 years
  - lessons in compounding interest
 
 """
@@ -11,6 +11,7 @@ f_iniInvest = 1e4
 f_interest  = .1
 i_Years    = 30
 
+new_variable = 100 # test to show github functionality
 
 #===================================================================================
 #                                calculation
