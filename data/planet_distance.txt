@@ -1,0 +1,12 @@
+#planet	dist [AU]	orbital period (years)
+Mercury	0.387		0.241
+Venus	0.723		0.615
+Earth	1.0		1.0
+Mars	1.52		1.88
+Jupiter	5.20		11.9
+Saturn	9.58		29.4
+Uranus	19.20		83.70
+Neptune	30.05		163.7
+
+
+
