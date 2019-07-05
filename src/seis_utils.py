@@ -30,13 +30,14 @@ def haversine( lon1, lat1, lon2, lat2, **kwargs):
     haversine formula implementation
     https://en.wikipedia.org/wiki/Great-circle_distance
     great circle distance between two points
-    :input   lon1, lat1
-             lon2, lat2
+    :input   lon1, lat1  - location of first set of points
+             lon2, lat2  - loc. second set of points
+                          - could be arrays or floating points
 
-    		  gR - Earth radius (global variable)
+
     :output  distance - great circle distance in meter
     """
-    gR = 6378.137 # ~6370
+    gR = 6378.137 # ~6370 # gR - Earth radius
     # convert to radians
     lon1 = lon1 * np.pi / 180
     lon2 = lon2 * np.pi / 180
@@ -50,7 +51,7 @@ def haversine( lon1, lat1, lon2, lat2, **kwargs):
     distance = gR * c
     return distance
 
-def dateTime2decYr( YR, MO, DY, HR, MN, SC):
+def dateTime2decYr_old( YR, MO, DY, HR, MN, SC):
     """
     - convert date time to decimal year
     :param YR: - int or arrays
@@ -63,6 +64,30 @@ def dateTime2decYr( YR, MO, DY, HR, MN, SC):
     """
     nDays = 365.25
     return YR + (MO-1)/12 + (DY-1)/nDays  + HR/(nDays*24) + MN/(nDays*24*60) + SC/(nDays*24*3600)
+
+def dateTime2decYr( datetime_in, **kwargs ):
+    """
+    input: datetime_in = array containing time columns year - second
+                         [Yr, MO, DY, HR, MN, SC]
+    output: decimal year
+
+    - requires module mx.DateTime
+
+    """
+    import mx
+    #datetime_in = checkDateTime( datetime_in)
+    try:
+        datetime = mx.DateTime.DateTime( int( datetime_in[0] ), int( datetime_in[1] ), int( datetime_in[2] ),
+                        int( datetime_in[3] ), int( datetime_in[4] ), float( datetime_in[5] ) )
+    except:
+        error_msg = "datetime array not valid - %s; check if date and time is correct, e.g. no SC > 60.." % datetime_in
+        raise ValueError, error_msg
+    year_seconds = ( datetime.day_of_year - 1 ) * 86400.0 + datetime.abstime
+    if datetime.is_leapyear:
+        year_fraction = year_seconds / ( 86400.0 * 366 )
+    else:
+        year_fraction = year_seconds / ( 86400.0 * 365 )
+    return datetime.year + year_fraction
 
 def area_poly( aX, aY):
     """
